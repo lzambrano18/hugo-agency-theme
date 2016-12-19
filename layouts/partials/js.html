@@ -10,6 +10,9 @@
 {{ "<!-- Custom Theme -->" | safeHTML }}
 <script src="{{ "js/agency.js"| absURL }}"></script>
 
+{{ "<!-- Owl Carousel -->" | safeHTML }}
+<script src="{{ "js/owl.carousel.js"| absURL }}"></script>
+
 {{ template "_internal/google_analytics_async.html" . }}
 
 {{ if .Site.Params.analytics.piwik }}
@@ -17,5 +20,13 @@
 {{ end }}
 
 {{ range .Site.Params.custom_js }}
-  <script src="{{ . | absURL }}"></script>
+<script src="{{ . | absURL }}"></script>
 {{ end }}
+
+<script>
+  $(document).ready(function() {
+    $("#carousel").owlCarousel({
+      items: 3,
+    });
+  });
+</script>

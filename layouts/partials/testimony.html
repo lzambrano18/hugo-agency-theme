@@ -1,0 +1,32 @@
+{{ "<!-- Contact Section -->" | safeHTML }}
+<section id="testimony"> 
+  <div class="container">
+   <div class="row">
+      <div class="col-lg-12 text-center">
+        <h2 class="section-heading text-white">{{ with .Site.Params.testimony.title }}{{ . }}{{ end }}</h2>
+      </div>
+    </div>
+    <div class="row text-center">
+    {{ range .Site.Data.testimonies }}
+      <div class="col-md-4">
+        <div class="testimony-box">
+            <div class="testimony-text">
+                <p>{{ .testimony }}</p>
+            </div>
+            <div class="testimony-person">
+                <div class="testimony-name">
+                    {{.name}}
+                </div>
+                <div class="testimony-position">
+                    {{.position}}
+                </div>
+            </div>
+            {{ $url := printf "img/testimony/%s" .img }}
+            <img src="{{ $url | absURL }}" class="testimony-img" alt="">
+        </div> 
+      </div>
+     {{ end }}
+      </div>
+    </div>
+  </div>
+</section>
